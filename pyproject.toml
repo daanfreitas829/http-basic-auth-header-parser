@@ -1,6 +1,6 @@
 [project]
 name = "http-basic-auth-header-parser"
-version = "0.1.0"
+version = "0.1.1"
 description = "HTTP Basic auth header parser and builder with RFC 7617 charset and RFC 2045 base64 support"
 requires-python = ">=3.10"
 dependencies = []
