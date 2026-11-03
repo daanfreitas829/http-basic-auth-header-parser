@@ -44,3 +44,10 @@ raw byte that is not valid UTF-8 (e.g. a lone `0xE9`), the parser returns a
 latin-1 character rather than raising.  This keeps request handlers from
 500-ing on malformed input, but it means you should not treat `user` or
 `password` as guaranteed-clean UTF-8 if you forward them downstream.
+
+## Design notes
+
+The window stores values eagerly rather than keeping running aggregates. Running
+sums drift with floating point over long streams, and recomputing from a small
+buffer is cheap enough that the drift is not worth the speed.
+
